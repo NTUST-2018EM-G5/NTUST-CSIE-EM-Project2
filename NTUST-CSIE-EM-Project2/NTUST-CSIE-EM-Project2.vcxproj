@@ -139,10 +139,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataManager.cpp" />
+    <ClCompile Include="DotNetUitilities.cpp" />
     <ClCompile Include="EditFuncForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataManager.h" />
+    <ClInclude Include="DotNetUitilities.h" />
     <ClInclude Include="EditFuncForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

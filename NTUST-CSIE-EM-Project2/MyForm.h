@@ -1,4 +1,6 @@
 #include "EditFuncForm.h"
+#include "DataManager.h"
+#include "DotNetUitilities.h"
 #pragma once
 
 namespace NTUSTCSIEEMProject2 {
@@ -19,9 +21,8 @@ namespace NTUSTCSIEEMProject2 {
 		MyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO:  在此加入建構函式程式碼
-			//
+			//建構函式程式碼
+			dataManager = new DataManager();
 		}
 
 	protected:
@@ -80,7 +81,29 @@ namespace NTUSTCSIEEMProject2 {
 		/// <summary>
 		/// 設計工具所需的變數。
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		DataManager* dataManager;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel6;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel7;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::TextBox^  txtIntervalX_end;
+
+	private: System::Windows::Forms::TextBox^  txtInitial;
+
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel8;
+	private: System::Windows::Forms::TextBox^  txtIntervalY_begin;
+
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::TextBox^  txtIntervalY_end;
+
+	private: System::Windows::Forms::TextBox^  txtIntervalX_begin;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel9;
+	private: System::Windows::Forms::RadioButton^  rbtn_onlyX;
+	private: System::Windows::Forms::RadioButton^  rbtn_XandY;
+
+
+
+			 System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -108,12 +131,30 @@ namespace NTUSTCSIEEMProject2 {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->listFunction = (gcnew System::Windows::Forms::ListBox());
 			this->openFileDialog = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->tableLayoutPanel6 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->txtInitial = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel7 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->txtIntervalX_end = (gcnew System::Windows::Forms::TextBox());
+			this->txtIntervalX_begin = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel8 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->txtIntervalY_begin = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->txtIntervalY_end = (gcnew System::Windows::Forms::TextBox());
+			this->tableLayoutPanel9 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->rbtn_onlyX = (gcnew System::Windows::Forms::RadioButton());
+			this->rbtn_XandY = (gcnew System::Windows::Forms::RadioButton());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->toolStripTop->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			this->tableLayoutPanel4->SuspendLayout();
 			this->tableLayoutPanel3->SuspendLayout();
 			this->tableLayoutPanel5->SuspendLayout();
+			this->tableLayoutPanel6->SuspendLayout();
+			this->tableLayoutPanel7->SuspendLayout();
+			this->tableLayoutPanel8->SuspendLayout();
+			this->tableLayoutPanel9->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -164,6 +205,7 @@ namespace NTUSTCSIEEMProject2 {
 			this->btnReset->Name = L"btnReset";
 			this->btnReset->Size = System::Drawing::Size(67, 27);
 			this->btnReset->Text = L"Reset";
+			this->btnReset->Click += gcnew System::EventHandler(this, &MyForm::btnReset_Click);
 			// 
 			// btnClear
 			// 
@@ -172,6 +214,7 @@ namespace NTUSTCSIEEMProject2 {
 			this->btnClear->Name = L"btnClear";
 			this->btnClear->Size = System::Drawing::Size(65, 27);
 			this->btnClear->Text = L"Clear";
+			this->btnClear->Click += gcnew System::EventHandler(this, &MyForm::btnClear_Click);
 			// 
 			// btnHint
 			// 
@@ -223,18 +266,22 @@ namespace NTUSTCSIEEMProject2 {
 			this->label1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->label1->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label1->Location = System::Drawing::Point(3, 0);
+			this->label1->Location = System::Drawing::Point(0, 0);
+			this->label1->Margin = System::Windows::Forms::Padding(0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(488, 20);
+			this->label1->Size = System::Drawing::Size(494, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Output";
 			// 
 			// txtOutput
 			// 
 			this->txtOutput->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->txtOutput->Font = (gcnew System::Drawing::Font(L"Consolas", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->txtOutput->Location = System::Drawing::Point(3, 23);
 			this->txtOutput->Multiline = true;
 			this->txtOutput->Name = L"txtOutput";
+			this->txtOutput->ReadOnly = true;
 			this->txtOutput->Size = System::Drawing::Size(488, 561);
 			this->txtOutput->TabIndex = 1;
 			// 
@@ -243,10 +290,14 @@ namespace NTUSTCSIEEMProject2 {
 			this->tableLayoutPanel3->ColumnCount = 1;
 			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				100)));
+			this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel9, 0, 7);
+			this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel8, 0, 6);
+			this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel7, 0, 5);
 			this->tableLayoutPanel3->Controls->Add(this->label3, 0, 3);
 			this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel5, 0, 2);
 			this->tableLayoutPanel3->Controls->Add(this->label2, 0, 0);
 			this->tableLayoutPanel3->Controls->Add(this->listFunction, 0, 1);
+			this->tableLayoutPanel3->Controls->Add(this->tableLayoutPanel6, 0, 4);
 			this->tableLayoutPanel3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 4);
 			this->tableLayoutPanel3->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
@@ -270,9 +321,10 @@ namespace NTUSTCSIEEMProject2 {
 			this->label3->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->label3->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label3->Location = System::Drawing::Point(3, 407);
+			this->label3->Location = System::Drawing::Point(0, 407);
+			this->label3->Margin = System::Windows::Forms::Padding(0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(388, 20);
+			this->label3->Size = System::Drawing::Size(394, 20);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Option";
 			// 
@@ -308,10 +360,11 @@ namespace NTUSTCSIEEMProject2 {
 			this->btnRun->TabIndex = 1;
 			this->btnRun->Text = L"Run";
 			this->btnRun->UseVisualStyleBackColor = false;
+			this->btnRun->Click += gcnew System::EventHandler(this, &MyForm::btnRun_Click);
 			// 
 			// cbxMethod
 			// 
-			this->cbxMethod->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->cbxMethod->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->cbxMethod->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->cbxMethod->Font = (gcnew System::Drawing::Font(L"Consolas", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
@@ -322,8 +375,8 @@ namespace NTUSTCSIEEMProject2 {
 				L"Powell’s Method", L"Newton Method", L"Steep Descent Algorithm",
 					L"Quasi-Newton Method", L"Conjugate Gradient Methods"
 			});
-			this->cbxMethod->Location = System::Drawing::Point(3, 8);
-			this->cbxMethod->Margin = System::Windows::Forms::Padding(3, 7, 3, 7);
+			this->cbxMethod->Location = System::Drawing::Point(3, 7);
+			this->cbxMethod->Margin = System::Windows::Forms::Padding(0);
 			this->cbxMethod->Name = L"cbxMethod";
 			this->cbxMethod->Size = System::Drawing::Size(322, 22);
 			this->cbxMethod->TabIndex = 0;
@@ -335,21 +388,18 @@ namespace NTUSTCSIEEMProject2 {
 			this->label2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->label2->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label2->Location = System::Drawing::Point(3, 0);
+			this->label2->Location = System::Drawing::Point(0, 0);
+			this->label2->Margin = System::Windows::Forms::Padding(0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(388, 20);
+			this->label2->Size = System::Drawing::Size(394, 20);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Function and Method";
+			this->label2->Text = L"Equations and Methods";
 			// 
 			// listFunction
 			// 
 			this->listFunction->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listFunction->FormattingEnabled = true;
 			this->listFunction->ItemHeight = 16;
-			this->listFunction->Items->AddRange(gcnew cli::array< System::Object^  >(3) {
-				L"x^2+x-2*x^0.5", L"7+x^2-3*x*y+3.25*y^2-4*y",
-					L"0.001*x^3-0.07*x^2+0.06*x+0.0002*y^3-0.004*y^2+0.02*y"
-			});
 			this->listFunction->Location = System::Drawing::Point(3, 23);
 			this->listFunction->Margin = System::Windows::Forms::Padding(3, 3, 3, 0);
 			this->listFunction->Name = L"listFunction";
@@ -360,6 +410,183 @@ namespace NTUSTCSIEEMProject2 {
 			// openFileDialog
 			// 
 			this->openFileDialog->FileName = L"FileName";
+			this->openFileDialog->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &MyForm::openFileDialog_FileOk);
+			// 
+			// tableLayoutPanel6
+			// 
+			this->tableLayoutPanel6->ColumnCount = 2;
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				100)));
+			this->tableLayoutPanel6->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				300)));
+			this->tableLayoutPanel6->Controls->Add(this->label4, 0, 0);
+			this->tableLayoutPanel6->Controls->Add(this->txtInitial, 1, 0);
+			this->tableLayoutPanel6->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel6->Location = System::Drawing::Point(0, 427);
+			this->tableLayoutPanel6->Margin = System::Windows::Forms::Padding(0);
+			this->tableLayoutPanel6->Name = L"tableLayoutPanel6";
+			this->tableLayoutPanel6->RowCount = 1;
+			this->tableLayoutPanel6->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel6->Size = System::Drawing::Size(394, 40);
+			this->tableLayoutPanel6->TabIndex = 6;
+			// 
+			// label4
+			// 
+			this->label4->Anchor = System::Windows::Forms::AnchorStyles::Right;
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->label4->Location = System::Drawing::Point(9, 12);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(82, 16);
+			this->label4->TabIndex = 0;
+			this->label4->Text = L"Initial Point :";
+			// 
+			// txtInitial
+			// 
+			this->txtInitial->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtInitial->Location = System::Drawing::Point(97, 8);
+			this->txtInitial->Name = L"txtInitial";
+			this->txtInitial->Size = System::Drawing::Size(189, 23);
+			this->txtInitial->TabIndex = 1;
+			// 
+			// tableLayoutPanel7
+			// 
+			this->tableLayoutPanel7->ColumnCount = 3;
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				100)));
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				116)));
+			this->tableLayoutPanel7->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				184)));
+			this->tableLayoutPanel7->Controls->Add(this->txtIntervalX_begin, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->label5, 0, 0);
+			this->tableLayoutPanel7->Controls->Add(this->txtIntervalX_end, 1, 0);
+			this->tableLayoutPanel7->Location = System::Drawing::Point(0, 467);
+			this->tableLayoutPanel7->Margin = System::Windows::Forms::Padding(0);
+			this->tableLayoutPanel7->Name = L"tableLayoutPanel7";
+			this->tableLayoutPanel7->RowCount = 1;
+			this->tableLayoutPanel7->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel7->Size = System::Drawing::Size(394, 40);
+			this->tableLayoutPanel7->TabIndex = 7;
+			// 
+			// label5
+			// 
+			this->label5->Anchor = System::Windows::Forms::AnchorStyles::Right;
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->label5->Location = System::Drawing::Point(20, 12);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(71, 16);
+			this->label5->TabIndex = 0;
+			this->label5->Text = L"X Interval :";
+			// 
+			// txtIntervalX_end
+			// 
+			this->txtIntervalX_end->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtIntervalX_end->Location = System::Drawing::Point(213, 8);
+			this->txtIntervalX_end->Name = L"txtIntervalX_end";
+			this->txtIntervalX_end->Size = System::Drawing::Size(108, 23);
+			this->txtIntervalX_end->TabIndex = 1;
+			// 
+			// txtIntervalX_begin
+			// 
+			this->txtIntervalX_begin->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtIntervalX_begin->Location = System::Drawing::Point(97, 8);
+			this->txtIntervalX_begin->Name = L"txtIntervalX_begin";
+			this->txtIntervalX_begin->Size = System::Drawing::Size(108, 23);
+			this->txtIntervalX_begin->TabIndex = 2;
+			// 
+			// tableLayoutPanel8
+			// 
+			this->tableLayoutPanel8->ColumnCount = 3;
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				100)));
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				116)));
+			this->tableLayoutPanel8->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Absolute,
+				184)));
+			this->tableLayoutPanel8->Controls->Add(this->txtIntervalY_begin, 0, 0);
+			this->tableLayoutPanel8->Controls->Add(this->label6, 0, 0);
+			this->tableLayoutPanel8->Controls->Add(this->txtIntervalY_end, 1, 0);
+			this->tableLayoutPanel8->Location = System::Drawing::Point(0, 507);
+			this->tableLayoutPanel8->Margin = System::Windows::Forms::Padding(0);
+			this->tableLayoutPanel8->Name = L"tableLayoutPanel8";
+			this->tableLayoutPanel8->RowCount = 1;
+			this->tableLayoutPanel8->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel8->Size = System::Drawing::Size(394, 40);
+			this->tableLayoutPanel8->TabIndex = 8;
+			// 
+			// txtIntervalY_begin
+			// 
+			this->txtIntervalY_begin->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtIntervalY_begin->Location = System::Drawing::Point(97, 8);
+			this->txtIntervalY_begin->Name = L"txtIntervalY_begin";
+			this->txtIntervalY_begin->Size = System::Drawing::Size(108, 23);
+			this->txtIntervalY_begin->TabIndex = 2;
+			// 
+			// label6
+			// 
+			this->label6->Anchor = System::Windows::Forms::AnchorStyles::Right;
+			this->label6->AutoSize = true;
+			this->label6->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(136)));
+			this->label6->Location = System::Drawing::Point(21, 12);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(70, 16);
+			this->label6->TabIndex = 0;
+			this->label6->Text = L"Y Interval :";
+			// 
+			// txtIntervalY_end
+			// 
+			this->txtIntervalY_end->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->txtIntervalY_end->Location = System::Drawing::Point(213, 8);
+			this->txtIntervalY_end->Name = L"txtIntervalY_end";
+			this->txtIntervalY_end->Size = System::Drawing::Size(108, 23);
+			this->txtIntervalY_end->TabIndex = 1;
+			// 
+			// tableLayoutPanel9
+			// 
+			this->tableLayoutPanel9->ColumnCount = 2;
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel9->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				50)));
+			this->tableLayoutPanel9->Controls->Add(this->rbtn_onlyX, 0, 0);
+			this->tableLayoutPanel9->Controls->Add(this->rbtn_XandY, 1, 0);
+			this->tableLayoutPanel9->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel9->Location = System::Drawing::Point(0, 547);
+			this->tableLayoutPanel9->Margin = System::Windows::Forms::Padding(0);
+			this->tableLayoutPanel9->Name = L"tableLayoutPanel9";
+			this->tableLayoutPanel9->RowCount = 1;
+			this->tableLayoutPanel9->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 100)));
+			this->tableLayoutPanel9->Size = System::Drawing::Size(394, 40);
+			this->tableLayoutPanel9->TabIndex = 9;
+			// 
+			// rbtn_onlyX
+			// 
+			this->rbtn_onlyX->Anchor = System::Windows::Forms::AnchorStyles::Right;
+			this->rbtn_onlyX->AutoSize = true;
+			this->rbtn_onlyX->Checked = true;
+			this->rbtn_onlyX->Location = System::Drawing::Point(131, 10);
+			this->rbtn_onlyX->Name = L"rbtn_onlyX";
+			this->rbtn_onlyX->Size = System::Drawing::Size(63, 20);
+			this->rbtn_onlyX->TabIndex = 0;
+			this->rbtn_onlyX->TabStop = true;
+			this->rbtn_onlyX->Text = L"Only X";
+			this->rbtn_onlyX->UseVisualStyleBackColor = true;
+			// 
+			// rbtn_XandY
+			// 
+			this->rbtn_XandY->Anchor = System::Windows::Forms::AnchorStyles::Left;
+			this->rbtn_XandY->AutoSize = true;
+			this->rbtn_XandY->Location = System::Drawing::Point(200, 10);
+			this->rbtn_XandY->Name = L"rbtn_XandY";
+			this->rbtn_XandY->Size = System::Drawing::Size(69, 20);
+			this->rbtn_XandY->TabIndex = 1;
+			this->rbtn_XandY->Text = L"X and Y";
+			this->rbtn_XandY->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
@@ -373,6 +600,7 @@ namespace NTUSTCSIEEMProject2 {
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"P2_G05_V1";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->toolStripTop->ResumeLayout(false);
@@ -383,10 +611,23 @@ namespace NTUSTCSIEEMProject2 {
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->tableLayoutPanel3->PerformLayout();
 			this->tableLayoutPanel5->ResumeLayout(false);
+			this->tableLayoutPanel6->ResumeLayout(false);
+			this->tableLayoutPanel6->PerformLayout();
+			this->tableLayoutPanel7->ResumeLayout(false);
+			this->tableLayoutPanel7->PerformLayout();
+			this->tableLayoutPanel8->ResumeLayout(false);
+			this->tableLayoutPanel8->PerformLayout();
+			this->tableLayoutPanel9->ResumeLayout(false);
+			this->tableLayoutPanel9->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+
+	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
+	{
+		txtOutput->Text += "-Hello world!-" + Environment::NewLine;
+	}
 		
 	private: System::Void listFunction_DoubleClick(System::Object^  sender, System::EventArgs^  e) 
 	{
@@ -395,12 +636,67 @@ namespace NTUSTCSIEEMProject2 {
 			EditFuncForm ^ eform = gcnew EditFuncForm;
 			eform->setText(listFunction->Text);
 			eform->ShowDialog();
-			if (eform->pressEnter)listFunction->Items[listFunction->SelectedIndex] = eform->getText();
+			if (eform->pressEnter)
+			{
+				listFunction->Items[listFunction->SelectedIndex] = eform->getText();
+			}
 		}
 	}
 	private: System::Void btnLoad_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
+		openFileDialog->ShowDialog();
+	}
+
+	private: System::Void btnRun_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		if (listFunction->SelectedIndex < 0)
+		{
+			MessageBox::Show("Please select a Equation.");
+			return;
+		}
+		if (cbxMethod->SelectedIndex < 0)
+		{
+			MessageBox::Show("Please select a Method.");
+			return;
+		}
+		//TODO: 執行程式
+	}
+
+	private: System::Void openFileDialog_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) 
+	{
+		// 取得檔名
+		std::string fileName = ConvertToString(openFileDialog->FileName);
+		dataManager->SetFileName(fileName);
 		
+		//TODO: 讀取檔案
+		if (dataManager->LoadEquationData())
+		{
+			listFunction->Items->Clear();
+			for each(std::string equation in dataManager->GetEquations())
+			{
+				listFunction->Items->Add(ConvertToString(equation));
+			}
+			
+		}
+		else //NO FILE
+		{
+			txtOutput->Text += "-The data is wrong-" + Environment::NewLine;
+		}
+	}
+	private: System::Void btnReset_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		//清空方程式
+		dataManager->Clear();
+		listFunction->Items->Clear();
+
+		//清空介面
+		txtOutput->Clear();
+		cbxMethod->SelectedIndex = -1;
+	}
+	private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		//清空輸出
+		txtOutput->Clear();
 	}
 };
 }
