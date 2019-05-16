@@ -6,6 +6,11 @@
 #include "MyEquation.h"
 #include "Variable.h"
 #include "Powell.h"
+#include "Newton.h"
+#include "Steep.h"
+#include "QuasiNewton.h"
+#include "Conjugate.h"
+
 
 using namespace std;
 //定義控管資料class

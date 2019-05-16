@@ -39,6 +39,15 @@
     <ClCompile Include="Powell.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="Steep.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="QuasiNewton.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Conjugate.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -63,6 +72,15 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Powell.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Steep.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="QuasiNewton.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Conjugate.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

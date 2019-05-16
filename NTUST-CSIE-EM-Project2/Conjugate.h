@@ -8,11 +8,11 @@
 #include"Variable.h"
 using namespace std;
 
-class Conjuate
+class Conjugate
 {
 	public:
-		Conjuate();
-		Conjuate(MyEquation equation, vector<Variable> variable);
+		Conjugate();
+		Conjugate(MyEquation equation, vector<Variable> variable);
 		string getResult();
 	//private:
 		MyEquation equation;

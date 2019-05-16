@@ -139,6 +139,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Conjugate.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DotNetUitilities.cpp" />
     <ClCompile Include="EditFuncForm.cpp" />
@@ -146,9 +147,12 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Newton.cpp" />
     <ClCompile Include="Powell.cpp" />
+    <ClCompile Include="QuasiNewton.cpp" />
+    <ClCompile Include="Steep.cpp" />
     <ClCompile Include="Variable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Conjugate.h" />
     <ClInclude Include="DataManager.h" />
     <ClInclude Include="DotNetUitilities.h" />
     <ClInclude Include="EditFuncForm.h">
@@ -160,6 +164,8 @@
     </ClInclude>
     <ClInclude Include="Newton.h" />
     <ClInclude Include="Powell.h" />
+    <ClInclude Include="QuasiNewton.h" />
+    <ClInclude Include="Steep.h" />
     <ClInclude Include="Variable.h" />
   </ItemGroup>
   <ItemGroup>
