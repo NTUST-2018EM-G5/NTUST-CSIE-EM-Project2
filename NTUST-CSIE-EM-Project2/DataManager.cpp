@@ -19,13 +19,16 @@ bool DataManager::LoadEquationData()
 	{
 		//定義讀取檔案字串暫存變數
 		std::string tempSring;
-
+		Equations.clear();
+		EquationIndex = 0;
 		//執行讀檔迴圈，並在讀到檔案結尾時結束
 		while (!fin.eof())
 		{
 			//從檔案讀取字串
-			fin >> tempSring;
-			//解析到向量標記"V"
+			getline(fin, tempSring);
+
+			
+			//將字串push到vector裡面
 			Equations.push_back(tempSring);
 			//遞增EquationIndex，標記到當前讀取向量ID
 			EquationIndex++;
@@ -56,4 +59,81 @@ void DataManager::Clear()
 	this->Equations.clear();
 	this->EquationIndex = -1;
 	this->FileName.clear();
+}
+
+std::string DataManager::Powells_Method(int index, vector<Variable> variable)
+{
+	std::string result = "-Powell's Method-\r\n";
+	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
+	{
+		MyEquation equation(this->Equations.at(index));
+		Powell powell(equation, variable);
+		result += powell.getResult() + "\r\n";
+	}
+	else
+	{
+		throw string("Error: wrong variable amount");
+	}
+	return result;
+}
+
+std::string DataManager::Newton_Method(int index, vector<Variable> variable)
+{
+	std::string result = "-Newton Method-\r\n";
+	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
+	{
+		MyEquation equation(this->Equations.at(index));
+		
+	}
+	else
+	{
+		throw string("Error: wrong variable amount");
+	}
+	return result;
+
+}
+
+std::string DataManager::Steep_Descent_Algorithm(int index, vector<Variable> variable)
+{
+	std::string result = "-Steep Descent Algorithm -\r\n";
+	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
+	{
+		MyEquation equation(this->Equations.at(index));
+
+	}
+	else
+	{
+		throw string("Error: wrong variable amount");
+	}
+	return result;
+}
+
+std::string DataManager::Quasi_Newton_Method(int index, vector<Variable> variable)
+{
+	std::string result = "-Quasi-Newton Method-\r\n";
+	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
+	{
+		MyEquation equation(this->Equations.at(index));
+
+	}
+	else
+	{
+		throw string("Error: wrong variable amount");
+	}
+	return result;
+}
+
+std::string DataManager::Conjugate_Gradient_Methods(int index, vector<Variable> variable)
+{
+	std::string result = "-Conjugate Gradient Methods-\r\n";
+	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
+	{
+		MyEquation equation(this->Equations.at(index));
+
+	}
+	else
+	{
+		throw string("Error: wrong variable amount");
+	}
+	return result;
 }

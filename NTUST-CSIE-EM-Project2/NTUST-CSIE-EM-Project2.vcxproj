@@ -142,7 +142,11 @@
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DotNetUitilities.cpp" />
     <ClCompile Include="EditFuncForm.cpp" />
+    <ClCompile Include="MyEquation.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Newton.cpp" />
+    <ClCompile Include="Powell.cpp" />
+    <ClCompile Include="Variable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataManager.h" />
@@ -150,9 +154,13 @@
     <ClInclude Include="EditFuncForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyEquation.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Newton.h" />
+    <ClInclude Include="Powell.h" />
+    <ClInclude Include="Variable.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditFuncForm.resx">

@@ -27,6 +27,18 @@
     <ClCompile Include="DotNetUitilities.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="MyEquation.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Variable.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Newton.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="Powell.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -39,6 +51,18 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="DotNetUitilities.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MyEquation.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Variable.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Newton.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Powell.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

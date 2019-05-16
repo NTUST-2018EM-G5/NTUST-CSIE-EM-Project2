@@ -109,10 +109,11 @@ namespace NTUSTCSIEEMProject2 {
 			this->txtFunction->ScrollBars = System::Windows::Forms::ScrollBars::Horizontal;
 			this->txtFunction->Size = System::Drawing::Size(578, 36);
 			this->txtFunction->TabIndex = 1;
+			this->txtFunction->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &EditFuncForm::txtFunction_KeyDown);
 			// 
 			// EditFuncForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(664, 42);
 			this->Controls->Add(this->tableLayoutPanel2);
@@ -146,5 +147,13 @@ namespace NTUSTCSIEEMProject2 {
 		this->Close();
 	}
 
+
+	private: System::Void txtFunction_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) 
+	{
+		if (e->KeyCode == Keys::Enter)
+		{
+			btnEnter_Click(sender, e);
+		}
+	}
 };
 }
