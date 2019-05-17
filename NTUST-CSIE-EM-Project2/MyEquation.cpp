@@ -183,6 +183,32 @@ double MyEquation::dddf_dxdx(double x)
 	return (this->dddf_dxdx(x + H) - this->dddf_dxdx(x)) / H;
 }
 
+double MyEquation::f_x(double x, double y)
+{
+	return (this->calc(x + H, y) - this->calc(x, y)) / H;
+}
+
+double MyEquation::f_y(double x, double y)
+{
+	return (this->calc(x, y + H) - this->calc(x, y)) / H;
+}
+
+double MyEquation::f_xx(double x, double y)
+{
+	return (this->calc(x + H, y) - 2 * this->calc(x, y) + this->calc(x - H, y)) / (H*H);
+}
+
+double MyEquation::f_yy(double x, double y)
+{
+	return (this->calc(x, y + H) - 2 * this->calc(x, y) + this->calc(x, y - H)) / (H*H);
+}
+
+double MyEquation::f_xy(double x, double y)
+{
+	return (this->calc(x + H, y + H) - this->calc(x - H, y + H) + this->calc(x + H, y - H) + this->calc(x - H, y - H)) / (4 * H*H);
+}
+
+
 void MyEquation::FillValuePostfix(double v1)
 {
 	ostringstream strs;

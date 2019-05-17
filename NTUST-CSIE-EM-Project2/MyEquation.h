@@ -45,12 +45,12 @@ class MyEquation
 		double dddf_dxdx(double x); //三階導數
 
 		//用於雙變數
-		//TODO: 雙變數
+		double f_x(double x, double y); //偏微分
+		double f_y(double x, double y); //偏微分
+		double f_xx(double x, double y); //偏微分
+		double f_yy(double x, double y); //偏微分
+		double f_xy(double x, double y); //偏微分(f_xy跟f_yx是一樣的)
 
-
-		//把值填入
-		//void FillValue(double v1);
-		//void FillValue(double v1, double v2);
 
 		//把後序式內的變數更換成指定值
 		void FillValuePostfix(double v1);
