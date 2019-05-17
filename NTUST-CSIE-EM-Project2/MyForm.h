@@ -823,6 +823,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 		
 		//將結果輸出在Output
 		txtOutput->Text += result;
+		//自動捲到最下方
+		txtOutput->SelectionStart = txtOutput->Text->Length;
+		txtOutput->ScrollToCaret();
 	}
 
 	private: System::Void openFileDialog_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) 
