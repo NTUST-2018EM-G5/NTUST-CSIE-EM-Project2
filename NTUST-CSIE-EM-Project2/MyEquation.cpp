@@ -30,7 +30,6 @@ double MyEquation::calc(double x, double y)
 	vector<string> tempStr;
 	vector<double> tempNum;
 	double temp;
-	char op;
 	for (size_t i = 0; i < postfix.size(); ++i)
 	{
 		//§PÂ_Ãþ«¬
@@ -180,7 +179,7 @@ double MyEquation::ddf_dxdx(double x)
 
 double MyEquation::dddf_dxdx(double x)
 {
-	return (this->dddf_dxdx(x + H) - this->dddf_dxdx(x)) / H;
+	return (this->ddf_dxdx(x + H) - this->ddf_dxdx(x)) / H;
 }
 
 double MyEquation::f_x(double x, double y)

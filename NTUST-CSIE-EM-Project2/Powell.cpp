@@ -57,9 +57,7 @@ double Powell::golden_section(double a, double b, double c)
 
 System::String^ Powell::getResult()
 {
-	//以下是測試輸出用，可以更改
-	
-	::String^ result = "";
+	System::String^ result = "";
 	string temp;
 	double r = 0;
 	double r2 = 0;
