@@ -6,14 +6,20 @@
 #include<sstream>
 #include"MyEquation.h"
 #include"Variable.h"
+#include"DotNetUitilities.h"
+
+#define MAX_TIME 100
+
 using namespace std;
+using namespace System;
 
 class Newton
 {
 	public:
 		Newton();
 		Newton(MyEquation equation, vector<Variable> variable);
-		string getResult();
+		System::String^ getResult();
+		void getHessian();
 	//private:
 		MyEquation equation;
 		vector<Variable> variable;

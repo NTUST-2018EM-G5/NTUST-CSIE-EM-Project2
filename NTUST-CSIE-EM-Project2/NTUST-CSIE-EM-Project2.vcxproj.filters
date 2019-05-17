@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>標頭檔</Filter>
-    </ClCompile>
     <ClCompile Include="EditFuncForm.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
@@ -46,6 +43,15 @@
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="Conjugate.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMatrix.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="MyVector.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
@@ -81,6 +87,12 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="Conjugate.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMatrix.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>

@@ -47,7 +47,6 @@ class MyEquation
 		//用於雙變數
 		//TODO: 雙變數
 
-		double getResult();
 
 		//把值填入
 		//void FillValue(double v1);

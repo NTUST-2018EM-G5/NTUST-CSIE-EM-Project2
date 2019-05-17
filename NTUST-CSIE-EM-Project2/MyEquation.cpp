@@ -170,26 +170,17 @@ double MyEquation::calc(double x, double y)
 
 double MyEquation::df_dx(double x)
 {
-	//TODO: df_dx
-	return 0.0;
+	return (this->calc(x + H, 0) - this->calc(x, 0)) / H;
 }
 
 double MyEquation::ddf_dxdx(double x)
 {
-	//TODO: ddf_dxdx
-	return 0.0;
+	return (this->df_dx(x + H) - this->df_dx(x)) / H;
 }
 
 double MyEquation::dddf_dxdx(double x)
 {
-	//TODO: dddf_dxdx
-	return 0.0;
-}
-
-double MyEquation::getResult()
-{
-	//TODO: getResult
-	return 0.0;
+	return (this->dddf_dxdx(x + H) - this->dddf_dxdx(x)) / H;
 }
 
 void MyEquation::FillValuePostfix(double v1)

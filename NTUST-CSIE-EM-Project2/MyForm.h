@@ -234,7 +234,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->btnLoad->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnLoad.Image")));
 			this->btnLoad->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->btnLoad->Name = L"btnLoad";
-			this->btnLoad->Size = System::Drawing::Size(79, 27);
+			this->btnLoad->Size = System::Drawing::Size(65, 27);
 			this->btnLoad->Text = L"Load";
 			this->btnLoad->Click += gcnew System::EventHandler(this, &MyForm::btnLoad_Click);
 			// 
@@ -243,7 +243,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->btnReset->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnReset.Image")));
 			this->btnReset->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(85, 27);
+			this->btnReset->Size = System::Drawing::Size(67, 27);
 			this->btnReset->Text = L"Reset";
 			this->btnReset->Click += gcnew System::EventHandler(this, &MyForm::btnReset_Click);
 			// 
@@ -252,7 +252,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->btnClear->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnClear.Image")));
 			this->btnClear->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->btnClear->Name = L"btnClear";
-			this->btnClear->Size = System::Drawing::Size(82, 27);
+			this->btnClear->Size = System::Drawing::Size(65, 27);
 			this->btnClear->Text = L"Clear";
 			this->btnClear->Click += gcnew System::EventHandler(this, &MyForm::btnClear_Click);
 			// 
@@ -261,7 +261,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->btnHint->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnHint.Image")));
 			this->btnHint->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->btnHint->Name = L"btnHint";
-			this->btnHint->Size = System::Drawing::Size(75, 27);
+			this->btnHint->Size = System::Drawing::Size(59, 27);
 			this->btnHint->Text = L"Hint";
 			// 
 			// tableLayoutPanel2
@@ -322,9 +322,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->txtOutput->Multiline = true;
 			this->txtOutput->Name = L"txtOutput";
 			this->txtOutput->ReadOnly = true;
+			this->txtOutput->ScrollBars = System::Windows::Forms::ScrollBars::Both;
 			this->txtOutput->Size = System::Drawing::Size(488, 561);
 			this->txtOutput->TabIndex = 1;
-			this->txtOutput->TextChanged += gcnew System::EventHandler(this, &MyForm::txtOutput_TextChanged);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -386,9 +386,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label4->Location = System::Drawing::Point(142, 0);
+			this->label4->Location = System::Drawing::Point(143, 12);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(61, 40);
+			this->label4->Size = System::Drawing::Size(60, 16);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Interval :";
 			// 
@@ -396,18 +396,18 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			// 
 			this->txtVar2_interval_end->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->txtVar2_interval_end->Enabled = false;
-			this->txtVar2_interval_end->Location = System::Drawing::Point(276, 4);
+			this->txtVar2_interval_end->Location = System::Drawing::Point(276, 8);
 			this->txtVar2_interval_end->Name = L"txtVar2_interval_end";
-			this->txtVar2_interval_end->Size = System::Drawing::Size(60, 31);
+			this->txtVar2_interval_end->Size = System::Drawing::Size(60, 23);
 			this->txtVar2_interval_end->TabIndex = 9;
 			// 
 			// txtVar2_interval_begin
 			// 
 			this->txtVar2_interval_begin->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->txtVar2_interval_begin->Enabled = false;
-			this->txtVar2_interval_begin->Location = System::Drawing::Point(209, 4);
+			this->txtVar2_interval_begin->Location = System::Drawing::Point(209, 8);
 			this->txtVar2_interval_begin->Name = L"txtVar2_interval_begin";
-			this->txtVar2_interval_begin->Size = System::Drawing::Size(60, 31);
+			this->txtVar2_interval_begin->Size = System::Drawing::Size(60, 23);
 			this->txtVar2_interval_begin->TabIndex = 8;
 			// 
 			// tableLayoutPanel8
@@ -441,9 +441,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label6->Location = System::Drawing::Point(158, 0);
+			this->label6->Location = System::Drawing::Point(149, 12);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(45, 40);
+			this->label6->Size = System::Drawing::Size(54, 16);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Init val :";
 			// 
@@ -451,9 +451,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			// 
 			this->txtVar2_name->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->txtVar2_name->Enabled = false;
-			this->txtVar2_name->Location = System::Drawing::Point(116, 4);
+			this->txtVar2_name->Location = System::Drawing::Point(116, 8);
 			this->txtVar2_name->Name = L"txtVar2_name";
-			this->txtVar2_name->Size = System::Drawing::Size(20, 31);
+			this->txtVar2_name->Size = System::Drawing::Size(20, 23);
 			this->txtVar2_name->TabIndex = 3;
 			this->txtVar2_name->Text = L"y";
 			// 
@@ -463,9 +463,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->cbxVar2->AutoSize = true;
 			this->cbxVar2->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->cbxVar2->Location = System::Drawing::Point(3, 6);
+			this->cbxVar2->Location = System::Drawing::Point(3, 10);
 			this->cbxVar2->Name = L"cbxVar2";
-			this->cbxVar2->Size = System::Drawing::Size(107, 27);
+			this->cbxVar2->Size = System::Drawing::Size(107, 20);
 			this->cbxVar2->TabIndex = 1;
 			this->cbxVar2->Text = L"Var 2   Name :";
 			this->cbxVar2->UseVisualStyleBackColor = true;
@@ -475,9 +475,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			// 
 			this->txtVar2_init->Anchor = System::Windows::Forms::AnchorStyles::Left;
 			this->txtVar2_init->Enabled = false;
-			this->txtVar2_init->Location = System::Drawing::Point(209, 4);
+			this->txtVar2_init->Location = System::Drawing::Point(209, 8);
 			this->txtVar2_init->Name = L"txtVar2_init";
-			this->txtVar2_init->Size = System::Drawing::Size(60, 31);
+			this->txtVar2_init->Size = System::Drawing::Size(60, 23);
 			this->txtVar2_init->TabIndex = 7;
 			// 
 			// label3
@@ -536,15 +536,15 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 				static_cast<System::Byte>(0)));
 			this->cbxMethod->FormattingEnabled = true;
 			this->cbxMethod->IntegralHeight = false;
-			this->cbxMethod->ItemHeight = 22;
+			this->cbxMethod->ItemHeight = 14;
 			this->cbxMethod->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"Powell’s Method", L"Newton Method", L"Steep Descent Algorithm",
 					L"Quasi-Newton Method", L"Conjugate Gradient Methods"
 			});
-			this->cbxMethod->Location = System::Drawing::Point(3, 3);
+			this->cbxMethod->Location = System::Drawing::Point(3, 7);
 			this->cbxMethod->Margin = System::Windows::Forms::Padding(0);
 			this->cbxMethod->Name = L"cbxMethod";
-			this->cbxMethod->Size = System::Drawing::Size(322, 30);
+			this->cbxMethod->Size = System::Drawing::Size(322, 22);
 			this->cbxMethod->TabIndex = 0;
 			// 
 			// label2
@@ -565,7 +565,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			// 
 			this->listFunction->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->listFunction->FormattingEnabled = true;
-			this->listFunction->ItemHeight = 23;
+			this->listFunction->ItemHeight = 16;
 			this->listFunction->Location = System::Drawing::Point(3, 23);
 			this->listFunction->Margin = System::Windows::Forms::Padding(3, 3, 3, 0);
 			this->listFunction->Name = L"listFunction";
@@ -604,27 +604,27 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label5->Location = System::Drawing::Point(158, 0);
+			this->label5->Location = System::Drawing::Point(149, 12);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(45, 40);
+			this->label5->Size = System::Drawing::Size(54, 16);
 			this->label5->TabIndex = 6;
 			this->label5->Text = L"Init val :";
 			// 
 			// txtVar1_name
 			// 
 			this->txtVar1_name->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->txtVar1_name->Location = System::Drawing::Point(116, 4);
+			this->txtVar1_name->Location = System::Drawing::Point(116, 8);
 			this->txtVar1_name->Name = L"txtVar1_name";
-			this->txtVar1_name->Size = System::Drawing::Size(20, 31);
+			this->txtVar1_name->Size = System::Drawing::Size(20, 23);
 			this->txtVar1_name->TabIndex = 2;
 			this->txtVar1_name->Text = L"x";
 			// 
 			// txtVar1_init
 			// 
 			this->txtVar1_init->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->txtVar1_init->Location = System::Drawing::Point(209, 4);
+			this->txtVar1_init->Location = System::Drawing::Point(209, 8);
 			this->txtVar1_init->Name = L"txtVar1_init";
-			this->txtVar1_init->Size = System::Drawing::Size(60, 31);
+			this->txtVar1_init->Size = System::Drawing::Size(60, 23);
 			this->txtVar1_init->TabIndex = 4;
 			// 
 			// cbxVar1
@@ -635,9 +635,9 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->cbxVar1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->cbxVar1->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->cbxVar1->Location = System::Drawing::Point(3, 6);
+			this->cbxVar1->Location = System::Drawing::Point(3, 10);
 			this->cbxVar1->Name = L"cbxVar1";
-			this->cbxVar1->Size = System::Drawing::Size(107, 27);
+			this->cbxVar1->Size = System::Drawing::Size(107, 20);
 			this->cbxVar1->TabIndex = 0;
 			this->cbxVar1->Text = L"Var 1   Name :";
 			this->cbxVar1->UseVisualStyleBackColor = true;
@@ -673,26 +673,26 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"微軟正黑體", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(136)));
-			this->label7->Location = System::Drawing::Point(142, 0);
+			this->label7->Location = System::Drawing::Point(143, 12);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(61, 40);
+			this->label7->Size = System::Drawing::Size(60, 16);
 			this->label7->TabIndex = 6;
 			this->label7->Text = L"Interval :";
 			// 
 			// txtVar1_interval_end
 			// 
 			this->txtVar1_interval_end->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->txtVar1_interval_end->Location = System::Drawing::Point(276, 4);
+			this->txtVar1_interval_end->Location = System::Drawing::Point(276, 8);
 			this->txtVar1_interval_end->Name = L"txtVar1_interval_end";
-			this->txtVar1_interval_end->Size = System::Drawing::Size(60, 31);
+			this->txtVar1_interval_end->Size = System::Drawing::Size(60, 23);
 			this->txtVar1_interval_end->TabIndex = 6;
 			// 
 			// txtVar1_interval_begin
 			// 
 			this->txtVar1_interval_begin->Anchor = System::Windows::Forms::AnchorStyles::Left;
-			this->txtVar1_interval_begin->Location = System::Drawing::Point(209, 4);
+			this->txtVar1_interval_begin->Location = System::Drawing::Point(209, 8);
 			this->txtVar1_interval_begin->Name = L"txtVar1_interval_begin";
-			this->txtVar1_interval_begin->Size = System::Drawing::Size(60, 31);
+			this->txtVar1_interval_begin->Size = System::Drawing::Size(60, 23);
 			this->txtVar1_interval_begin->TabIndex = 5;
 			// 
 			// openFileDialog
@@ -702,7 +702,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(906, 633);
 			this->Controls->Add(this->tableLayoutPanel1);
@@ -795,24 +795,32 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 		//依據不同的Method，求出計算過程
 		System::String^ result;
 		int equIndex = listFunction->SelectedIndex;
-		switch (cbxMethod->SelectedIndex)
+		try
 		{
+			switch (cbxMethod->SelectedIndex)
+			{
 			case 0: //Powell’s Method
-				result = ConvertToString(dataManager->Powells_Method(equIndex, var));
+				result = dataManager->Powells_Method(equIndex, var);
 				break;
 			case 1: //Newton Method
-				result = ConvertToString(dataManager->Newton_Method(equIndex, var));
+				result = dataManager->Newton_Method(equIndex, var);
 				break;
 			case 2: //Steep Descent Algorithm
-				result = ConvertToString(dataManager->Steep_Descent_Algorithm(equIndex, var));
+				result = dataManager->Steep_Descent_Algorithm(equIndex, var);
 				break;
 			case 3: //Quasi-Newton Method 
-				result = ConvertToString(dataManager->Quasi_Newton_Method(equIndex, var));
+				result = dataManager->Quasi_Newton_Method(equIndex, var);
 				break;
 			case 4: //Conjugate Gradient Methods 
-				result = ConvertToString(dataManager->Conjugate_Gradient_Methods(equIndex, var));
+				result = dataManager->Conjugate_Gradient_Methods(equIndex, var);
 				break;
+			}
 		}
+		catch (string whyError)
+		{
+			result = ConvertToString(whyError + "\r\n");
+		}
+		
 		//將結果輸出在Output
 		txtOutput->Text += result;
 	}
@@ -874,7 +882,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			txtVar2_interval_end->Enabled = false;
 		}
 	}
-private: System::Void txtOutput_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-}
+
+
 };
 }

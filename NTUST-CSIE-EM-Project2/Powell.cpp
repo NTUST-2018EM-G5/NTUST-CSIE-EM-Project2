@@ -12,11 +12,10 @@ Powell::Powell(MyEquation equation, vector<Variable> variable)
 	this->variable = variable;
 }
 
-string Powell::getResult()
+System::String^ Powell::getResult()
 {
 	//以下是測試輸出用，可以更改
-	string result = "";
-	stringstream sstream;
+	System::String^ result = "";
 	double r = 0;
 	if (variable.size() == 1)
 	{
@@ -26,7 +25,6 @@ string Powell::getResult()
 	{
 		//r = this->equation.calc(variable.at(0).init, variable.at(1).init);
 	}
-	sstream << r;
-	sstream >> result;
+	result = r.ToString();
 	return result;
 }

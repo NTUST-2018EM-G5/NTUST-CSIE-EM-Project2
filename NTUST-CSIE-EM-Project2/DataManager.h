@@ -29,15 +29,15 @@ class DataManager
 		//清空資料
 		void Clear();
 		//選擇一個Equation執行Powell’s Method，回傳迭代過程
-		std::string Powells_Method(int index, vector<Variable> variable);
+		System::String^ Powells_Method(int index, vector<Variable> variable);
 		//選擇一個Equation執行Newton Method，回傳迭代過程
-		std::string Newton_Method(int index, vector<Variable> variable);
+		System::String^ Newton_Method(int index, vector<Variable> variable);
 		//選擇一個Equation執行Steep Descent Algorithm，回傳迭代過程
-		std::string Steep_Descent_Algorithm(int index, vector<Variable> variable);
+		System::String^ Steep_Descent_Algorithm(int index, vector<Variable> variable);
 		//選擇一個Equation執行Quasi-Newton Method，回傳迭代過程
-		std::string Quasi_Newton_Method(int index, vector<Variable> variable);
+		System::String^ Quasi_Newton_Method(int index, vector<Variable> variable);
 		//選擇一個Equation執行Conjugate Gradient Methods，回傳迭代過程
-		std::string Conjugate_Gradient_Methods(int index, vector<Variable> variable);
+		System::String^ Conjugate_Gradient_Methods(int index, vector<Variable> variable);
 
 	//private:
 		//儲存方程式資料

@@ -61,9 +61,9 @@ void DataManager::Clear()
 	this->FileName.clear();
 }
 
-std::string DataManager::Powells_Method(int index, vector<Variable> variable)
+System::String^ DataManager::Powells_Method(int index, vector<Variable> variable)
 {
-	std::string result = "-Powell's Method-\r\n";
+	System::String^ result = "-Powell's Method-\r\n";
 	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
 	{
 		MyEquation equation(this->Equations.at(index));
@@ -77,13 +77,14 @@ std::string DataManager::Powells_Method(int index, vector<Variable> variable)
 	return result;
 }
 
-std::string DataManager::Newton_Method(int index, vector<Variable> variable)
+System::String^ DataManager::Newton_Method(int index, vector<Variable> variable)
 {
-	std::string result = "-Newton Method-\r\n";
+	System::String^ result = "-Newton Method-\r\n";
 	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
 	{
 		MyEquation equation(this->Equations.at(index));
-		
+		Newton newton(equation, variable);
+		result += newton.getResult();
 	}
 	else
 	{
@@ -93,13 +94,14 @@ std::string DataManager::Newton_Method(int index, vector<Variable> variable)
 
 }
 
-std::string DataManager::Steep_Descent_Algorithm(int index, vector<Variable> variable)
+System::String^ DataManager::Steep_Descent_Algorithm(int index, vector<Variable> variable)
 {
-	std::string result = "-Steep Descent Algorithm -\r\n";
+	System::String^ result = "-Steep Descent Algorithm -\r\n";
 	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
 	{
 		MyEquation equation(this->Equations.at(index));
-
+		Steep steep(equation, variable);
+		result += steep.getResult();
 	}
 	else
 	{
@@ -108,13 +110,14 @@ std::string DataManager::Steep_Descent_Algorithm(int index, vector<Variable> var
 	return result;
 }
 
-std::string DataManager::Quasi_Newton_Method(int index, vector<Variable> variable)
+System::String^ DataManager::Quasi_Newton_Method(int index, vector<Variable> variable)
 {
-	std::string result = "-Quasi-Newton Method-\r\n";
+	System::String^ result = "-Quasi-Newton Method-\r\n";
 	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
 	{
 		MyEquation equation(this->Equations.at(index));
-
+		QuasiNewton quasinewton(equation, variable);
+		result += quasinewton.getResult();
 	}
 	else
 	{
@@ -123,13 +126,14 @@ std::string DataManager::Quasi_Newton_Method(int index, vector<Variable> variabl
 	return result;
 }
 
-std::string DataManager::Conjugate_Gradient_Methods(int index, vector<Variable> variable)
+System::String^ DataManager::Conjugate_Gradient_Methods(int index, vector<Variable> variable)
 {
-	std::string result = "-Conjugate Gradient Methods-\r\n";
+	System::String^ result = "-Conjugate Gradient Methods-\r\n";
 	if (variable.size() == 1 || variable.size() == 2) //有一個或兩個變量
 	{
 		MyEquation equation(this->Equations.at(index));
-
+		Conjugate conjugate(equation, variable);
+		result += conjugate.getResult();
 	}
 	else
 	{

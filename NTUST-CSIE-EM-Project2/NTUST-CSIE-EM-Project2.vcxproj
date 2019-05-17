@@ -145,6 +145,8 @@
     <ClCompile Include="EditFuncForm.cpp" />
     <ClCompile Include="MyEquation.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="MyMatrix.cpp" />
+    <ClCompile Include="MyVector.cpp" />
     <ClCompile Include="Newton.cpp" />
     <ClCompile Include="Powell.cpp" />
     <ClCompile Include="QuasiNewton.cpp" />
@@ -162,6 +164,8 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyMatrix.h" />
+    <ClInclude Include="MyVector.h" />
     <ClInclude Include="Newton.h" />
     <ClInclude Include="Powell.h" />
     <ClInclude Include="QuasiNewton.h" />
