@@ -58,7 +58,8 @@ double Powell::golden_section(double a, double b, double c)
 System::String^ Powell::getResult()
 {
 	//以下是測試輸出用，可以更改
-	System::String^ result = "";
+	
+	::String^ result = "";
 	string temp;
 	double r = 0;
 	double r2 = 0;
@@ -66,11 +67,8 @@ System::String^ Powell::getResult()
 	{
 		r = golden_section(this->variable[0].begin, this->variable[0].init, this->variable[0].end);
 		r2 = this->equation.calc(r, 0);
-		ostringstream strs, strs2;
-		strs << r;
-		strs2 << r2;
-		temp = "[" + this->variable[0].name + "] = " + "[" + strs.str()  + "]" + "\r\n" + "min = " + strs2.str() + "\r\n";
-		result = ConvertToString(temp);
+		result += "[" + ConvertToString(this->variable[0].name) + "] = [" + r.ToString("0.##########") + "]" + Environment::NewLine;
+		result += "min = " + r2.ToString("0.##########") + Environment::NewLine;
 	}
 	else if (variable.size() == 2)
 	{

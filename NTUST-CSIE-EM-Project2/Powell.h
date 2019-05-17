@@ -6,6 +6,7 @@
 #include<sstream>
 #include"MyEquation.h"
 #include"Variable.h"
+#include"DotNetUitilities.h"
 
 using namespace std;
 using namespace System;
