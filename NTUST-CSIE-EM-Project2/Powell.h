@@ -16,6 +16,7 @@ class Powell
 		Powell();
 		Powell(MyEquation equation, vector<Variable> variable);
 		System::String^ getResult();
+		double golden_section(double a, double b, double c);
 	//private:
 		MyEquation equation;
 		vector<Variable> variable;
