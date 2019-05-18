@@ -19,7 +19,6 @@ class Newton
 		Newton();
 		Newton(MyEquation equation, vector<Variable> variable);
 		System::String^ getResult();
-		void getHessian();
 	//private:
 		MyEquation equation;
 		vector<Variable> variable;

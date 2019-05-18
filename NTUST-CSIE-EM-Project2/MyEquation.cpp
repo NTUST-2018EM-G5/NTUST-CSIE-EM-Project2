@@ -204,7 +204,7 @@ double MyEquation::f_yy(double x, double y)
 
 double MyEquation::f_xy(double x, double y)
 {
-	return (this->calc(x + H, y + H) - this->calc(x - H, y + H) + this->calc(x + H, y - H) + this->calc(x - H, y - H)) / (4 * H*H);
+	return (this->calc(x + H, y + H) - this->calc(x - H, y + H) - this->calc(x + H, y - H) + this->calc(x - H, y - H)) / (4 * H*H);
 }
 
 

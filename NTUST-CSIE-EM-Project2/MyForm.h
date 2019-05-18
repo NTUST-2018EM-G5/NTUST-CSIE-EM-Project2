@@ -400,6 +400,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->txtVar2_interval_end->Name = L"txtVar2_interval_end";
 			this->txtVar2_interval_end->Size = System::Drawing::Size(60, 23);
 			this->txtVar2_interval_end->TabIndex = 9;
+			this->txtVar2_interval_end->Text = L"0";
 			// 
 			// txtVar2_interval_begin
 			// 
@@ -409,6 +410,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->txtVar2_interval_begin->Name = L"txtVar2_interval_begin";
 			this->txtVar2_interval_begin->Size = System::Drawing::Size(60, 23);
 			this->txtVar2_interval_begin->TabIndex = 8;
+			this->txtVar2_interval_begin->Text = L"0";
 			// 
 			// tableLayoutPanel8
 			// 
@@ -686,6 +688,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->txtVar1_interval_end->Name = L"txtVar1_interval_end";
 			this->txtVar1_interval_end->Size = System::Drawing::Size(60, 23);
 			this->txtVar1_interval_end->TabIndex = 6;
+			this->txtVar1_interval_end->Text = L"0";
 			// 
 			// txtVar1_interval_begin
 			// 
@@ -694,6 +697,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->txtVar1_interval_begin->Name = L"txtVar1_interval_begin";
 			this->txtVar1_interval_begin->Size = System::Drawing::Size(60, 23);
 			this->txtVar1_interval_begin->TabIndex = 5;
+			this->txtVar1_interval_begin->Text = L"0";
 			// 
 			// openFileDialog
 			// 
