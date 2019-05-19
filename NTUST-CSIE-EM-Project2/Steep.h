@@ -6,6 +6,12 @@
 #include<sstream>
 #include"MyEquation.h"
 #include"Variable.h"
+#include"DotNetUitilities.h"
+#include"MyVector.h"
+#include"MyMatrix.h"
+
+#define MAX_TIME 100
+#define ZERO 0.0000001
 
 using namespace std;
 using namespace System;
