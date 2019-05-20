@@ -1,5 +1,4 @@
 #include "Newton.h"
-#define ZERO 0.0000001
 
 
 Newton::Newton()
