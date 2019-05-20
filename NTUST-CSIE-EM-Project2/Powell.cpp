@@ -95,7 +95,7 @@ double Powell::golden_sectiony(double a, double b, double c, double x)
 }
 double f(double x, double y)
 {
-	return 3 + pow(x - 1.5*y, 2) + pow(y - 2, 2);
+	return 0.001 * pow(x,3) - 0.07 * pow(x, 2) + 0.06*x + 0.0002 * pow(y , 3)- 0.004 * pow(y,2) + 0.02 * y;
 }
 double Powell::golden_section_ex(double xin, double yin, double s1, double s2,double abe,double a1, double aen)
 {
@@ -113,7 +113,12 @@ double Powell::golden_section_ex(double xin, double yin, double s1, double s2,do
 	{
 		return (aen + abe) / 2;
 	}
-	if (this->equation.calc(xin + (a1 * s1), yin + (a1 * s2)) < this->equation.calc(xin + (a2 * s1), yin + (a2 * s2))) //帶a1會比較小
+	double x1, x2, y1, y2;
+	x1 = xin + (a1 * s1);
+	y1 = yin + (a1 * s2);
+	x2 = xin + (a2 * s1);
+	y2 = yin + (a2 * s2);
+	if (this->equation.calc(x1, y1) < this->equation.calc(x2, y2)) //帶a1會比較小
 	//if(f(xin + (a1 * s1), yin + (a1 * s2)) < f(xin + (a2 * s1), yin + (a2 * s2)))
 	{
 		if (aen - a1 > a1 - abe) //a2在a1右邊
@@ -200,25 +205,25 @@ System::String^ Powell::getResult()
 			in++;
 			result += "i = " + in.ToString() + Environment::NewLine;
 			result += "X2[" + xinit.ToString("0.##########") + " " + yinit.ToString("0.##########") + "]" + Environment::NewLine;
-			if (abs(s1) < 0.0001)
+			if (abs(s3) < 0.0001)
 			{
 				limits[0] = (xbegin - xinit);
 				limits[1] = (xend - xinit);
 			}
 			else
 			{
-				limits[0] = (xbegin - xinit) / s1;
-				limits[1] = (xend - xinit) / s1;
+				limits[0] = (xbegin - xinit) / s3;
+				limits[1] = (xend - xinit) / s3;
 			}
-			if (abs(s2) < 0.0001)
+			if (abs(s4) < 0.0001)
 			{
 				limits[2] = (ybegin - yinit);
 				limits[3] = (yend - yinit);
 			}
 			else
 			{
-				limits[2] = (ybegin - yinit) / s2;
-				limits[3] = (yend - yinit) / s2;
+				limits[2] = (ybegin - yinit) / s4;
+				limits[3] = (yend - yinit) / s4;
 			}
 			sort(limits, limits + 4);
 			ainit = golden_section_ex(xinit, yinit, s3, s4, limits[1], (limits[1] + limits[2]) / 2, limits[2]);
@@ -227,25 +232,25 @@ System::String^ Powell::getResult()
 			s5 += ainit * s3;
 			s6 += ainit * s4;
 			result += "X3[" + xinit.ToString("0.##########") + " " + yinit.ToString("0.##########") + "]" + Environment::NewLine + Environment::NewLine;
-			if (abs(s1) < 0.0001)
+			if (abs(s5) < 0.0001)
 			{
 				limits[0] = (xbegin - xinit);
 				limits[1] = (xend - xinit);
 			}
 			else
 			{
-				limits[0] = (xbegin - xinit) / s1;
-				limits[1] = (xend - xinit) / s1;
+				limits[0] = (xbegin - xinit) / s5;
+				limits[1] = (xend - xinit) / s5;
 			}
-			if (abs(s2) < 0.0001)
+			if (abs(s6) < 0.0001)
 			{
 				limits[2] = (ybegin - yinit);
 				limits[3] = (yend - yinit);
 			}
 			else
 			{
-				limits[2] = (ybegin - yinit) / s2;
-				limits[3] = (yend - yinit) / s2;
+				limits[2] = (ybegin - yinit) / s6;
+				limits[3] = (yend - yinit) / s6;
 			}
 			sort(limits, limits + 4);
 			ainit = golden_section_ex(xinit, yinit, s5, s6, limits[1], (limits[1] + limits[2]) / 2, limits[2]);
@@ -256,6 +261,9 @@ System::String^ Powell::getResult()
 			result += "X4[" + xinit.ToString("0.##########") + " " + yinit.ToString("0.##########") + "]" + Environment::NewLine + Environment::NewLine;
 			if ((abs(xinit - (xinit - ainit * s5)) < 0.00000001) && (abs(yinit - (yinit - ainit * s6)) < 0.00000001))
 			{
+				result += "[x,y] = " + xinit.ToString("0.##########") + ", " + yinit.ToString("0.##########") + "]" + Environment::NewLine;
+				double temp = this->equation.calc(xinit, yinit);
+				result += "min = " + temp.ToString("0.##########") + Environment::NewLine;
 				break;
 			}
 			jn++;
