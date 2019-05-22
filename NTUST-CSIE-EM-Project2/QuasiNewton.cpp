@@ -152,13 +152,23 @@ System::String^ QuasiNewton::getResult()
 			newhessian_inverse[1][1] = hessian_inverse[1][1] + ((delta[1] * delta[1]) / (delta[0] * gradient[0] + delta[1] * gradient[1])) - ((fgk[1] * fgk[1]) / (gradient[0] * fgk[0] + gradient[1] * fgk[1]));
 
 			//OUTPUT
-			result += "i=" + k + Environment::NewLine;
-			result += "Hessian = [" + hessian[0][0].ToString("0.##########") + " , " + hessian[0][1].ToString("0.##########") + "]" + Environment::NewLine;
-			result += "          [" + hessian[1][0].ToString("0.##########") + " , " + hessian[1][1].ToString("0.##########") + "]" + Environment::NewLine;
-			result += "HessianInverse = [" + hessian_inverse[0][0].ToString("0.##########") + " , " + hessian_inverse[0][1].ToString("0.##########") + "]" + Environment::NewLine;
-			result += "                 [" + hessian_inverse[1][0].ToString("0.##########") + " , " + hessian_inverse[1][1].ToString("0.##########") + "]" + Environment::NewLine;
-			result += ConvertToString(this->variable.at(0).name) + " = [" + x.ToString("0.##########") + "]" + Environment::NewLine;
-			result += ConvertToString(this->variable.at(1).name) + " = [" + y.ToString("0.##########") + "]" + Environment::NewLine + Environment::NewLine;
+			//result += "i=" + k + Environment::NewLine;
+			if (k == 1)
+			{
+				result += "Initial Hessian = [" + hessian[0][0].ToString("0.##########") + " , " + hessian[0][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += "                  [" + hessian[1][0].ToString("0.##########") + " , " + hessian[1][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += "Initial HessianInverse = [" + hessian_inverse[0][0].ToString("0.##########") + " , " + hessian_inverse[0][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += "                         [" + hessian_inverse[1][0].ToString("0.##########") + " , " + hessian_inverse[1][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += ConvertToString(this->variable.at(0).name) + " = [" + x.ToString("0.##########") + "]" + Environment::NewLine;
+				result += ConvertToString(this->variable.at(1).name) + " = [" + y.ToString("0.##########") + "]" + Environment::NewLine + Environment::NewLine;
+			}
+			else
+			{
+				result += "HessianInverse = [" + hessian_inverse[0][0].ToString("0.##########") + " , " + hessian_inverse[0][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += "                 [" + hessian_inverse[1][0].ToString("0.##########") + " , " + hessian_inverse[1][1].ToString("0.##########") + "]" + Environment::NewLine;
+				result += ConvertToString(this->variable.at(0).name) + " = [" + x.ToString("0.##########") + "]" + Environment::NewLine;
+				result += ConvertToString(this->variable.at(1).name) + " = [" + y.ToString("0.##########") + "]" + Environment::NewLine + Environment::NewLine;
+			}
 			//------
 			k++;
 			if (k > MAX_TIME || (this->equation.calc(x, y) < this->equation.calc(pre[0], pre[1]) && abs(gradient[0]) < ZERO && abs(gradient[1]) < ZERO)) break;
