@@ -8,7 +8,7 @@ QuasiNewton::QuasiNewton()
 
 QuasiNewton::QuasiNewton(MyEquation equation, vector<Variable> variable)
 {
-	this->equation = equation;
+	this->equation = equation;	
 	this->variable = variable;
 }
 

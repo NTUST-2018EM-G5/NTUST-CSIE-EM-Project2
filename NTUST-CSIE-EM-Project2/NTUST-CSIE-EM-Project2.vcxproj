@@ -143,6 +143,7 @@
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="DotNetUitilities.cpp" />
     <ClCompile Include="EditFuncForm.cpp" />
+    <ClCompile Include="HintForm.cpp" />
     <ClCompile Include="MyEquation.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyMatrix.cpp" />
@@ -160,6 +161,9 @@
     <ClInclude Include="EditFuncForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="HintForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyEquation.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
@@ -175,6 +179,9 @@
   <ItemGroup>
     <EmbeddedResource Include="EditFuncForm.resx">
       <DependentUpon>EditFuncForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HintForm.resx">
+      <DependentUpon>HintForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>

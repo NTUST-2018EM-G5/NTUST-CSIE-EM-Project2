@@ -1,4 +1,5 @@
 #include "EditFuncForm.h"
+#include "HintForm.h"
 #include "DataManager.h"
 #include "DotNetUitilities.h"
 #pragma once
@@ -263,6 +264,7 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 			this->btnHint->Name = L"btnHint";
 			this->btnHint->Size = System::Drawing::Size(59, 27);
 			this->btnHint->Text = L"Hint";
+			this->btnHint->Click += gcnew System::EventHandler(this, &MyForm::btnHint_Click);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -778,23 +780,32 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 		}
 		//把參數存進Variable裡面
 		vector<Variable> var;
-		Variable temp;
-		if (cbxVar1->Checked)
+		try
 		{
-			temp.name = ConvertToString(txtVar1_name->Text);
-			temp.init = stod(ConvertToString(txtVar1_init->Text));
-			temp.begin = stod(ConvertToString(txtVar1_interval_begin->Text));
-			temp.end = stod(ConvertToString(txtVar1_interval_end->Text));
-			var.push_back(temp);
+			Variable temp;
+			if (cbxVar1->Checked)
+			{
+				temp.name = ConvertToString(txtVar1_name->Text);
+				temp.init = stod(ConvertToString(txtVar1_init->Text));
+				temp.begin = stod(ConvertToString(txtVar1_interval_begin->Text));
+				temp.end = stod(ConvertToString(txtVar1_interval_end->Text));
+				var.push_back(temp);
+			}
+			if (cbxVar2->Checked)
+			{
+				temp.name = ConvertToString(txtVar2_name->Text);
+				temp.init = stod(ConvertToString(txtVar2_init->Text));
+				temp.begin = stod(ConvertToString(txtVar2_interval_begin->Text));
+				temp.end = stod(ConvertToString(txtVar2_interval_end->Text));
+				var.push_back(temp);
+			}
 		}
-		if (cbxVar2->Checked)
+		catch (...)
 		{
-			temp.name = ConvertToString(txtVar2_name->Text);
-			temp.init = stod(ConvertToString(txtVar2_init->Text));
-			temp.begin = stod(ConvertToString(txtVar2_interval_begin->Text));
-			temp.end = stod(ConvertToString(txtVar2_interval_end->Text));
-			var.push_back(temp);
+			MessageBox::Show("Please Fill the value.\r\nIf not in use, fill the \"0\"");
+			return;
 		}
+		
 		
 		//依據不同的Method，求出計算過程
 		System::String^ result;
@@ -891,5 +902,10 @@ private: System::Windows::Forms::TextBox^  txtVar1_interval_begin;
 	}
 
 
+	private: System::Void btnHint_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+		HintForm ^ hform = gcnew HintForm;
+		hform->ShowDialog();
+	}
 };
 }

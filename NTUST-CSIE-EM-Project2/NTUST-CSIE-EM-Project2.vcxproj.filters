@@ -54,6 +54,9 @@
     <ClCompile Include="MyVector.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="HintForm.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -93,6 +96,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="MyVector.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="HintForm.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
