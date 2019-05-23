@@ -18,7 +18,7 @@ System::String^ Conjugate::getResult()
 	if (variable.size() == 1) //單變數
 	{
 		double gradient, direction, hessian, alpha, beta, x, y, temp;
-		double next, next_gradient, next_direction;
+		double next, next_gradient;
 		x = this->variable.at(0).init;
 		y = 0;
 		//Step 1-------------------------------------------------
@@ -61,7 +61,7 @@ System::String^ Conjugate::getResult()
 			beta = -(next_gradient * direction) / (temp * direction);
 
 			//Step 7-------------------------------------------------
-			next_direction = -next_gradient + beta * direction;
+			direction = -next_gradient + beta * direction;
 
 			x = next;
 
@@ -87,7 +87,7 @@ System::String^ Conjugate::getResult()
 	else if (variable.size() == 2) //雙變數
 	{
 		double gradient[2], direction[2], hessian[2][2], alpha, beta, x, y, temp[2];
-		double next[2], next_gradient[2], next_direction[2];
+		double next[2], next_gradient[2];
 		x = this->variable.at(0).init;
 		y = this->variable.at(1).init;
 		//Step 1-------------------------------------------------
@@ -139,8 +139,8 @@ System::String^ Conjugate::getResult()
 			beta = -(next_gradient[0] * direction[0] + next_gradient[1] * direction[1]) / (temp[0] * direction[0] + temp[1] * direction[1]);
 
 			//Step 7-------------------------------------------------
-			next_direction[0] = -gradient[0] + beta * direction[0];
-			next_direction[1] = -gradient[1] + beta * direction[1];
+			direction[0] = -gradient[0] + beta * direction[0];
+			direction[1] = -gradient[1] + beta * direction[1];
 
 			x = next[0];
 			y = next[1];
